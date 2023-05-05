@@ -54,19 +54,19 @@ fun FourItemRow(number: Int) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        MacroHolder( name = "Macro "+(number+0).toString() )
-        MacroHolder( name = "Macro "+(number+1).toString() )
-        MacroHolder( name = "Macro "+(number+2).toString() )
-        MacroHolder( name = "Macro "+(number+3).toString() )
+        MacroHolder( name = "Macro ", number = (number+0) )
+        MacroHolder( name = "Macro ", number = (number+1) )
+        MacroHolder( name = "Macro ", number = (number+2) )
+        MacroHolder( name = "Macro ", number = (number+3) )
     }
 }
 
 @Composable
-fun MacroHolder(name: String) {
+fun MacroHolder(name: String, number: Int) {
     Column(
         modifier = Modifier.padding(horizontal = 16.dp)
     ) {
-        Macro(name = name)
+        Macro(name = name, number = number)
     }
 }
 

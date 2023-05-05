@@ -37,6 +37,7 @@ fun CircularSlider(
     var radius by remember { mutableStateOf(0f) }
     var center by remember { mutableStateOf(Offset.Zero) }
     var appliedAngle by remember { mutableStateOf(0f) }
+
     LaunchedEffect(key1 = angle){
         var a = angle
         //a += 60
@@ -53,6 +54,7 @@ fun CircularSlider(
     LaunchedEffect(key1 = appliedAngle){
         onChange?.invoke(appliedAngle/270f)
     }
+
     Canvas(
         modifier = modifier
             .onGloballyPositioned {
@@ -122,6 +124,7 @@ fun CircularSlider(
                 radius*sin((180+appliedAngle)*PI/180f).toFloat()
             )
         )
+        
         if(debug){
             drawRect(
                 color = Color.Green,
