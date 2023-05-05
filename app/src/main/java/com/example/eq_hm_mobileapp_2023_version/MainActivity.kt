@@ -7,10 +7,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,11 +33,23 @@ class MainActivity : ComponentActivity() {
                         .background(MaterialTheme.colors.background)
                 ) { 
                     Scaffold() {
-                        Column(
-                            modifier = Modifier.padding(12.dp).fillMaxSize()
-                        ) {
-                            FourItemRow(1)
-                            FourItemRow(5)
+                        Box() {
+                            Column(
+                                modifier = Modifier
+                                    .padding(12.dp)
+                                    .fillMaxSize()
+                            ) {
+                                FourItemRow(1)
+                                FourItemRow(5)
+                            }
+
+                            Box(modifier = Modifier.padding(12.dp).align(Alignment.TopEnd)) {
+                                Icon(
+                                    imageVector = Icons.Rounded.Settings,
+                                    contentDescription = null,
+                                    Modifier.size(48.dp).padding(4.dp)
+                                )
+                            }
                         }
                     }
                 }
@@ -50,7 +61,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun FourItemRow(number: Int) {
     Row(
-        modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp).fillMaxWidth(),
+        modifier = Modifier
+            .padding(horizontal = 24.dp, vertical = 8.dp)
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {

@@ -64,7 +64,7 @@ fun Arc(macroNumber: Int) {
 
 @Composable
 fun PercentValue(value: Int) {
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 2.dp)) {
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(horizontal = 2.dp, vertical = 2.dp)) {
         Text(text =  "$value %", fontSize = 16.sp)
     }
 }
