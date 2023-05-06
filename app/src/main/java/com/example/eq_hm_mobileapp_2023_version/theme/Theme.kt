@@ -1,4 +1,4 @@
-package com.example.eq_hm_mobileapp_2023_version.ui.theme
+package com.example.eq_hm_mobileapp_2023_version.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
