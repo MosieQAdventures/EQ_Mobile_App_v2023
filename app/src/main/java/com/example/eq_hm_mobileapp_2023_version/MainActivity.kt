@@ -25,6 +25,9 @@ import com.example.eq_hm_mobileapp_2023_version.components.Macro
 import com.example.eq_hm_mobileapp_2023_version.theme.EQ_HM_MobileApp_2023_VersionTheme
 import com.example.eq_hm_mobileapp_2023_version.theme.colorPalette
 import com.example.eq_hm_mobileapp_2023_version.ui.MacrosViewModel
+import com.example.eq_hm_mobileapp_2023_version.vstSend.ProgressDescription
+import com.example.eq_hm_mobileapp_2023_version.vstSend.Singleton
+import java.util.ArrayList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +42,14 @@ class MainActivity : ComponentActivity() {
 fun MobileApp() {
     val activity = (LocalContext.current as Activity) // see if it works, if not move down
     activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+
+    // Singleton stuff start
+    // init and set list of params to send
+    var progressDescriptions: MutableList<ProgressDescription?> = ArrayList()
+    progressDescriptions = createProgressList(progressDescriptions)
+
+    Singleton.getInstance().setProgressDescriptionList(progressDescriptions)
+    //Singleton stuff end
 
     EQ_HM_MobileApp_2023_VersionTheme {
         Column(
@@ -116,6 +127,19 @@ fun MacroHolder(name: String, number: Int,
             macrosUIState = macrosUIState,
         )
     }
+}
+
+//default values
+fun createProgressList(progressList: MutableList<ProgressDescription?>): MutableList<ProgressDescription?> {
+    progressList.add(ProgressDescription("m1p", 0.2f)) //0-19980        //index 0
+    progressList.add(ProgressDescription("m2p", 0.2f)) //0-3           //index 1
+    progressList.add(ProgressDescription("m3p", 0.2f)) //0-19980      //index 2
+    progressList.add(ProgressDescription("m4p", 0.2f)) //0-489       //index 3
+    progressList.add(ProgressDescription("m5p", 0.2f)) //0-99         //index 4
+    progressList.add(ProgressDescription("m6p", 0.2f)) //0-19980      //index 5
+    progressList.add(ProgressDescription("m7p", 0.2f)) //0-489       //index 6
+    progressList.add(ProgressDescription("m8p", 0.2f)) //0-99         //index 7
+    return progressList
 }
 
 @Composable

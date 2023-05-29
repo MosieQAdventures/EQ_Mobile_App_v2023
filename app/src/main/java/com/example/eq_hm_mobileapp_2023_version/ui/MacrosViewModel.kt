@@ -3,6 +3,7 @@ package com.example.eq_hm_mobileapp_2023_version.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.eq_hm_mobileapp_2023_version.data.MacrosState
+import com.example.eq_hm_mobileapp_2023_version.vstSend.Singleton
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -53,8 +54,23 @@ class MacrosViewModel(
             )
         }
 
-        Log.d("VM", "m3 ${_uiState.value.macroStateNo3}")
+        //Log.d("VM", "m3 ${_uiState.value.macroStateNo3}")
         //Log.d("VM", "m8 ${_uiState.value.macroStateNo8}")
+
+        //Singleton stuff test
+        //fill progress list before send
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m1p", 0, state.macroNo1.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m2p", 1, state.macroNo2.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m3p", 2, state.macroNo3.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m4p", 3, state.macroNo4.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m5p", 4, state.macroNo5.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m6p", 5, state.macroNo6.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m7p", 6, state.macroNo7.progress)
+        Singleton.getInstance().setProgressDescriptionIndividualListValue("m8p", 7, state.macroNo8.progress)
+
+        Singleton.getInstance().executeAsyncTask()
+
+
     }
 
 
